@@ -29,5 +29,24 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
         }
         console.log(result.ops)
     })
+    db.collection("tasks").insertMany([
+        {
+            description: 'Cleaning',
+            completion: true
+        },
+        {
+            description: 'Designing',
+            completion: false
+        },
+        {
+            description: 'Learning',
+            completed: true
+        }
+    ], (error, result) => {
+        if (error){
+            return console.log('Unable to insert tasks');
+        }
+        console.log(result.ops);
+    })
 })
 
