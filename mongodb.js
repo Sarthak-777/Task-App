@@ -23,8 +23,8 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
         }
         console.log(task);
     })
-    db.collection('tasks').find({completion: false}).toArray((error,task) => {
-        console.log(task);
+    db.collection('tasks').find({completion: true}).toArray((error,tasks) => {
+        console.log(tasks);
     })
 })
 
