@@ -17,6 +17,14 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     }
     console.log('Connected correctly');
     const db = client.db(databaseName);
-    
+    db.collection('tasks').findOne({_id : ObjectID("609255aaadeeb5192f8fc35d")}, (error, task)=>{
+        if(error){
+            return console.log('Error detected');
+        }
+        console.log(task);
+    })
+    db.collection('tasks').find({completion: false}).toArray((error,task) => {
+        console.log(task);
+    })
 })
 
