@@ -25,7 +25,7 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
         age: 31
     }).then((result) => {
         console.log(result)
-    }).catch((result)=>{
+    }).catch((error)=>{
         console.log(error)
     })
 })
