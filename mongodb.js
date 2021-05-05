@@ -21,16 +21,6 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     }
     console.log('Connected correctly');
     const db = client.db(databaseName);
-
-    db.collection("users").insertOne({
-        _id: id,
-        name: "Sarthak",
-        age: 19
-     }, (error, result) => {
-        if (error){
-            return console.log('Unable to insert Docs');
-        }
-        console.log(result.ops)
-    })
+    
 })
 
