@@ -21,7 +21,13 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     }
     console.log('Connected correctly');
     const db = client.db(databaseName);
-    db.collection('users').deleteOne
+    db.collection('tasks').deleteOne({
+        description: 'Cleaning'
+    }).then((result)=> {
+        console.log(result);
+    }).catch((error)=> {
+        console.log(error);
+    })
         
 })
 
