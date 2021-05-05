@@ -17,6 +17,18 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     }
     console.log('Connected correctly');
     const db = client.db(databaseName);
-
+    db.collection('users').findOne({_id: new ObjectID("609252b64a8ec5163333f8fa")},(error, user) => {
+        if (error){
+            return console.log('Unable to fetch');
+        }
+        console.log(user);
+    })
+    //find returns a cursor of the value found
+    db.collection('users').find({ age: 31 }).toArray((error,users)=>{
+        console.log(users);
+    })
+    db.collection('users').find({ age: 31 }).count((error,users)=>{
+        console.log(users);
+    })
 })
 
